@@ -1,0 +1,126 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.pencil{
+    position: relative;
+    width: 9.375rem;
+    height: 1.25rem;
+    transform-origin: center;
+    transform: rotate(310deg);
+    animation: pencil-animation 3s infinite;
+}
+
+@keyframes pencil-animation{
+    0%{
+        transform: rotate(135deg);
+    }
+    20%{
+        transform: rotate(315deg);
+    }
+    45%{
+        transform: translateX(18.75rem) rotate(315deg);
+    }
+
+    55%{
+        transform: translateX(18.75rem) rotate(495deg);
+    }
+
+    100%{
+        transform: rotate(495deg);
+    }
+}
+
+.pencil-pointer{
+    position: absolute;
+    width: 0.188rem;
+    height: 0.188rem;
+    background-color: red;
+    top: 50%;
+    left: 0;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.pencil-cap{
+    position: absolute;
+    width: 12%;
+    height: 100%;
+    background-color: #fde394;
+    left: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    clip-path: polygon(20% 40%, 100% 0, 100% 100%, 20% 60%);
+
+}
+
+.pencil-cap-base{
+    position: absolute;
+    background-color: #f9d47c;
+    width: 4%;
+    height: 100%;
+    top: 0;
+    left: 12%;
+}
+
+.pencil-middle{
+    position: absolute;
+    background-color: red;
+    width: 74%;
+    height: 100%;
+    top: 0;
+    left: calc(4% + 12%);
+}
+
+.pencil-eraser{
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 10%;
+    height: 100%;
+    top: 0;
+    left: calc(4% + 12% + 74%);
+    border-radius: 0px 0.25rem 0.25rem 0px;
+}
+
+
+.line{
+    position: relative;
+    background-color: red;
+    width: 62.5rem;
+    height: 0.313rem;
+    top: 2.625rem;
+    right: 3.125rem;
+    transform: scaleX(0);
+    transform-origin: center;
+    z-index: -1;
+
+    border-radius: 50%;
+
+animation: line-animation 3s infinite;
+}
+
+@keyframes line-animation{
+    20%{
+        transform: scaleX(0);
+    }
+    45%{
+        transform: scaleX(0.6);
+    }
+    55%{
+        transform: scaleX(0.6);
+    }
+    100%{
+        transform: scaleX(0);
+    }
+
+}
+
+h2{
+    position: relative;
+    top: 3.125rem;
+
+}
