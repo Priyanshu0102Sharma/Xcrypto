@@ -1,0 +1,24 @@
+  .flex-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  @keyframes revolving-light {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 200% 0%;
+    }
+  }
+  
+  .animation-div {
+    border: 1px solid transparent;
+    border-radius: 5px; /* Optional, for rounded corners */
+    background: linear-gradient(90deg, transparent, orange, transparent);
+    background-size: 200% 100%;
+    animation: revolving-light 4s linear infinite;
+    background-clip: border-box;
+    border-image-source: linear-gradient(90deg, transparent, orange, transparent);
+  }
+  

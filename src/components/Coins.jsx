@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { server } from "../index";
 import { Button, Container, HStack, Radio, RadioGroup } from "@chakra-ui/react";
-import Loader from "./Loader";
-import ErrorComponent from "./ErrorComponent";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { server } from "../index";
 import CoinCard from "./CoinCard";
+import ErrorComponent from "./ErrorComponent";
+import Loader from "./Loader";
 
 const Coins = () => {
   const [coins, setCoins] = useState([]);
@@ -20,6 +22,16 @@ const Coins = () => {
     setPage(page);
     setLoading(true);
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if(!token){
+      toast.info("Please Login First!");
+      navigate("/login");
+    }
+  }, []);
 
   const btns = new Array(132).fill(1);
 

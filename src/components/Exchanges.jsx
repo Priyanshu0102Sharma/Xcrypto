@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { server } from "../index";
 import {
   Container,
   Heading,
@@ -9,8 +6,11 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import Loader from "./Loader";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { server } from "../index";
 import ErrorComponent from "./ErrorComponent";
+import Loader from "./Loader";
 
 const Exchanges = () => {
   const [exchanges, setExchanges] = useState([]);
@@ -18,7 +18,15 @@ const Exchanges = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    
+    
+    
     const fetchExchanges = async () => {
+
+
+
+
+
       try {
         const { data } = await axios.get(`${server}/exchanges`);
         setExchanges(data);
